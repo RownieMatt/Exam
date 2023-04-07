@@ -1,0 +1,157 @@
+Stored Procedures 
+
+USE [DemoDB]
+GO
+
+/****** Object:  StoredProcedure [dbo].[Modify_tblCustomerExam]    Script Date: 2023-04-06 11:02:50 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+create proc [dbo].[Modify_tblCustomerExam]
+@ID bigint,
+@Name	varchar(50)	,
+@Address	varchar(50)	,
+@PhoneNumber	int	,
+@Email	varchar(50)	,
+@Age	int	,
+@Gender	char(2)	,
+@DateOfBirth	datetime,	
+@Nationality	varchar(50)	,
+@Salary	float	,
+@Position	varchar(50)	,
+@StartDate	datetime	
+
+as 
+
+Update tblCustomerExam
+set Name = @Name , Address = @Address, PhoneNumber=@PhoneNumber , Email = @Email , Age= @Age, Gender = @Gender,
+DateOfBirth = @DateOfBirth , Nationality = @Nationality, Salary = @Salary , Position = @Position ,StartDate = @StartDate 
+where CustomerID = @ID;
+GO
+
+
+
+
+USE [DemoDB]
+GO
+
+/****** Object:  StoredProcedure [dbo].[Modify_tblEmployeeExam]    Script Date: 2023-04-06 11:03:17 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+create proc [dbo].[Modify_tblEmployeeExam]
+@ID bigint,
+@Name	varchar(50)	,
+@Address	varchar(50)	,
+@PhoneNumber	int	,
+@Email	varchar(50)	,
+@Age	int	,
+@Gender	char(2)	,
+@DateOfBirth	datetime,	
+@Nationality	varchar(50)	,
+@Salary	float	,
+@Position	varchar(50)	,
+@StartDate	datetime	
+
+as 
+
+Update tblEmployeeExam
+set Name = @Name , Address = @Address, PhoneNumber=@PhoneNumber , Email = @Email , Age= @Age, Gender = @Gender,
+DateOfBirth = @DateOfBirth , Nationality = @Nationality, Salary = @Salary , Position = @Position ,StartDate = @StartDate 
+where EmployeeID = @ID;
+GO
+
+
+
+USE [DemoDB]
+GO
+
+/****** Object:  StoredProcedure [dbo].[Insert_tblCustomerExam]    Script Date: 2023-04-06 11:03:58 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+create proc [dbo].[Insert_tblCustomerExam]
+
+@Name	varchar(50)	,
+@Address	varchar(50)	,
+@PhoneNumber	int	,
+@Email	varchar(50)	,
+@Age	int	,
+@Gender	char(2)	,
+@DateOfBirth	datetime,	
+@Nationality	varchar(50)	,
+@Salary	float	,
+@Position	varchar(50)	,
+@StartDate	datetime	
+
+as 
+
+insert into tblCustomerExam(Name,Address,PhoneNumber
+,Email,Age,Gender,DateOfBirth,Nationality,Salary,Position,StartDate)
+
+values(@Name,@Address,@PhoneNumber,@Email,@Age,@Gender,@DateOfBirth,@Nationality,@Salary,@Position,@StartDate)
+GO
+
+
+
+
+
+
+USE [DemoDB]
+GO
+
+/****** Object:  StoredProcedure [dbo].[Delete_tblCustomerExam]    Script Date: 2023-04-06 11:05:37 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+create proc [dbo].[Delete_tblCustomerExam]
+@ID bigint
+
+as
+
+delete from tblCustomerExam where CustomerID = @ID 
+GO
+
+
+
+
+
+
+
+USE [DemoDB]
+GO
+
+/****** Object:  StoredProcedure [dbo].[Delete_tblEmployeeExam]    Script Date: 2023-04-06 11:06:01 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+create proc [dbo].[Delete_tblEmployeeExam]
+@ID bigint
+
+as
+
+delete from tblEmployeeExam where EmployeeID = @ID 
+
+
+GO
+
+
+
+
+
+
